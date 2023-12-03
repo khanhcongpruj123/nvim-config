@@ -17,3 +17,10 @@ vim.keymap.set(
   require("dap").toggle_breakpoint,
   { noremap = true, silent = true, desc = "Toggle break point" }
 )
+
+vim.keymap.set(
+  "n",
+  "<leader>e",
+  "<cmd>Neotree focus<cr>",
+  { noremap = true, silent = true, desc = "Forcus directory tree" }
+)
