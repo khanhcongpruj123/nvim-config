@@ -8,3 +8,12 @@ vim.keymap.set(
   require("telescope.builtin").resume,
   { noremap = true, silent = true, desc = "Resume" }
 )
+
+------ Keymaps for debuging
+vim.keymap.set("n", "<leader>dd", require("dapui").toggle, { noremap = true, silent = true, desc = "Toggle DAP UI" })
+vim.keymap.set(
+  "n",
+  "<leader>db",
+  require("dap").toggle_breakpoint,
+  { noremap = true, silent = true, desc = "Toggle break point" }
+)
