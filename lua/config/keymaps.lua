@@ -9,18 +9,16 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Resume" }
 )
 
------- Keymaps for debuging
-vim.keymap.set("n", "<leader>dd", require("dapui").toggle, { noremap = true, silent = true, desc = "Toggle DAP UI" })
-vim.keymap.set(
-  "n",
-  "<leader>db",
-  require("dap").toggle_breakpoint,
-  { noremap = true, silent = true, desc = "Toggle break point" }
-)
-
 vim.keymap.set(
   "n",
   "<leader>e",
   "<cmd>Neotree focus<cr>",
   { noremap = true, silent = true, desc = "Forcus directory tree" }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader>rr",
+  require("rest-nvim").run,
+  { noremap = true, silent = true, desc = "Run rest under cursor" }
 )

@@ -20,7 +20,6 @@ return {
           args = { "dap", "-l", "127.0.0.1:${port}" },
         },
       }
-      -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
       dap.configurations.go = {
         {
           type = "delve",
@@ -35,7 +34,6 @@ return {
           mode = "test",
           program = "${file}",
         },
-        -- works with go.mod packages and sub packages
         {
           type = "delve",
           name = "Debug test (go.mod)",
@@ -59,13 +57,37 @@ return {
           },
         },
       }
-
+      dap.adapters.node2 = {
+        type = "executable",
+        command = "node",
+        args = { "/Users/idev/.local/share/nvim/mason/packages/node-debug2-adapter/src/nodeDebug.js" },
+      }
       dap.configurations.typescript = {
         {
+          name = "Launch",
+          type = "node2",
+          request = "launch",
+          program = "${file}",
+          cwd = vim.fn.getcwd(),
+          sourceMaps = true,
+          protocol = "inspector",
+          console = "integratedTerminal",
+        },
+        {
+          name = "Attach to process",
+          type = "node2",
+          request = "attach",
+          processId = require("dap.utils").pick_process,
+        },
+        {
+          name = "Debug NestJs",
           type = "pwa-node",
           request = "launch",
-          name = "Launch file",
-          program = "${file}",
+          sourceMaps = true,
+          protocol = "inspector",
+          console = "integratedTerminal",
+          program = "${workspaceFolder}/node_modules/.bin/nest",
+          args = { "start" },
           cwd = "${workspaceFolder}",
         },
       }
