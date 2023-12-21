@@ -50,9 +50,8 @@ return {
         port = "${port}",
         executable = {
           command = "node",
-          -- 💀 Make sure to update this path to point to your installation
           args = {
-            "/Users/idev/.local/share/nvim/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
+            os.getenv("HOME") .. "/.local/share/nvim/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
             "${port}",
           },
         },
@@ -60,7 +59,7 @@ return {
       dap.adapters.node2 = {
         type = "executable",
         command = "node",
-        args = { "/Users/idev/.local/share/nvim/mason/packages/node-debug2-adapter/src/nodeDebug.js" },
+        args = { os.getenv("HOME") .. "/.local/share/nvim/mason/packages/node-debug2-adapter/src/nodeDebug.js" },
       }
       dap.configurations.typescript = {
         {
