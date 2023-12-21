@@ -4,21 +4,7 @@
 
 vim.keymap.set(
   "n",
-  "<leader>sx",
-  require("telescope.builtin").resume,
-  { noremap = true, silent = true, desc = "Resume" }
-)
-
-vim.keymap.set(
-  "n",
   "<leader>e",
   "<cmd>Neotree focus<cr>",
   { noremap = true, silent = true, desc = "Forcus directory tree" }
-)
-
-vim.keymap.set(
-  "n",
-  "<leader>rr",
-  require("rest-nvim").run,
-  { noremap = true, silent = true, desc = "Run rest under cursor" }
 )

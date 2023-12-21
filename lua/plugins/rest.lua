@@ -2,6 +2,16 @@
 return {
   "rest-nvim/rest.nvim",
   dependencies = { { "nvim-lua/plenary.nvim" } },
+  keys = {
+    {
+      "<leader>rr",
+      function()
+        require("rest-nvim").run()
+      end,
+      mode = { "n" },
+      desc = "Run rest under cursor",
+    },
+  },
   config = function()
     require("rest-nvim").setup({
       -- Open request results in a horizontal split
