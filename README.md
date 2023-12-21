@@ -1,1 +1,1 @@
-Idev NeoVim config
+NeoVim config
